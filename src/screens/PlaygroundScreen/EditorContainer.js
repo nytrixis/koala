@@ -2,6 +2,7 @@ import { useContext, useRef, useState } from "react";
 import "./EditorContainer.scss";
 import Editor from "@monaco-editor/react";
 import { PlaygroundContext } from "../../Providers/PlaygroundProvider";
+import { makeSubmission } from "./service";
 
 const editorOptions = {
     fontSize:16,
@@ -16,9 +17,9 @@ const fileExtensionMapping = {
     html: 'html'
 }
 
-export const EditorContainer = ({fileId, folderId}) => {
+export const EditorContainer = ({fileId, folderId, runCode}) => {
 
-    const {getDefaultCode, getLanguage} = useContext(PlaygroundContext);
+    const {getDefaultCode, getLanguage, updateLanguage} = useContext(PlaygroundContext);
 
     const [code, setCode] = useState(() => {
         return getDefaultCode(fileId, folderId);
@@ -72,11 +73,16 @@ export const EditorContainer = ({fileId, folderId}) => {
     }
 
     const onChangeLanguage = (e) => {
+        updateLanguage(fileId, folderId, e.target.value);
         setLanguage(e.target.value);   
     }
 
     const onChangeTheme = (e) => {
         setTheme(e.target.value);
+    }
+
+    const onRunCode = () => {
+        runCode({code: codeRef.current, language});
     }
 
     return (
@@ -127,12 +133,13 @@ export const EditorContainer = ({fileId, folderId}) => {
                     <span className="material-symbols-outlined">cloud_download</span>
                     <span>Export Code</span>
                 </button>
-                <button className="btn">
+                <button className="btn" onClick={onRunCode}>
                 <span className="material-symbols-outlined">play_arrow</span>
                 <span>Run Code</span>
                 </button>
 
             </div>
+
         </div>
     );
 }

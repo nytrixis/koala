@@ -159,6 +159,23 @@ export const PlaygroundProvider = ({children}) => {
         }
     }
 
+    const updateLanguage = (fileId, folderId, language) => {
+        const newFolders = [...folders];
+        for(let i =0; i<newFolders.length; i++){
+            if(newFolders[i].id === folderId){
+                for(let j=0; j<newFolders[i].files.length; j++){
+                    const currentFile = newFolders[i].files[j];
+                    if(fileId === currentFile.id){
+                        newFolders[i].files[j].code=defaultCodes[language];
+                        newFolders[i].files[j].language=language;
+
+                    }
+                }
+            }
+        }
+        setFolders(newFolders);
+    }
+
     const getLanguage = (fileId, folderId) => {
         for(let i =0; i<folders.length; i++){
             if(folders[i].id === folderId){
@@ -189,7 +206,8 @@ export const PlaygroundProvider = ({children}) => {
         deleteFile,
         createBattlefield,
         getDefaultCode,
-        getLanguage
+        getLanguage,
+        updateLanguage
     }
     // const obj = {name: 'nandinee'};
     return (
