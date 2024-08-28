@@ -1,74 +1,74 @@
 .root-editor-container {
-    background-color: blue;
-    height: 100%;
+  background-color: blue;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #e7ebf3;
+
+  .editor-header {
+    background-color: #1a1a1a;
     display: flex;
-    flex-direction: column;
-    color: #e7ebf3;
-
-    .editor-header{
-        background-color: #1A1A1A;
-        display: flex;
-        justify-content: space-between;
-        button, select{
-            border: none;
-            background-color: #313131;
-            color: #e7ebf3;
-            padding: 10px;
-            margin-left: 5px;
-            margin-right: 5px;
-            border-radius: 5px;
-
-        }
-        select:focus{
-            outline: none;
-        }
-        button {
-            color: #00B8A2;
-            background-color: #2A3D3A;
-            cursor: pointer;
-            transition-duration: 0.5s;
-        }
-        button:hover {
-            background-color: #2a635a;
-        }
-        .title {
-            font-size: 24px;
-        }
-        select{
-            margin-top: 10px;
-        }
+    justify-content: space-between;
+    button,
+    select {
+      border: none;
+      background-color: #313131;
+      color: #e7ebf3;
+      padding: 10px;
+      margin-left: 5px;
+      margin-right: 5px;
+      border-radius: 5px;
     }
-    .editor-footer {
-        background-color: #1A1A1A;
-        padding: 10px;
-        display: flex;
-        justify-content: space-between;
-        .btn{
-            display: flex;
-            align-items: center;
-            padding: 4px 10px;
-            background-color: #3E3E3E;
-            color: #C3C4C8;
-            border: none;
-            border-radius: 4px;
-            gap: 10px;
-            cursor: pointer;
-            transition-duration: 0.5s;
-
-        }
-        .btn:hover{
-            background-color: #8d8e94;
-            color: #e7ebf3;
-        }
+    select:focus {
+      outline: none;
     }
-    .editor-body {
-        flex-grow: 1;
-        background-color: white;
+    button {
+      color: #00b8a2;
+      background-color: #2a3d3a;
+      cursor: pointer;
+      transition-duration: 0.5s;
     }
-    .editor-left-container, .editor-right-container{
-        display: flex;
-        gap: 10px;
-        padding: 10px;
-        align-items: center;
+    button:hover {
+      background-color: #2a635a;
     }
+    .title {
+      font-size: 24px;
+    }
+    select {
+      margin-top: 10px;
+    }
+  }
+  .editor-footer {
+    background-color: #1a1a1a;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    .btn {
+      display: flex;
+      align-items: center;
+      padding: 4px 10px;
+      background-color: #3e3e3e;
+      color: #c3c4c8;
+      border: none;
+      border-radius: 4px;
+      gap: 10px;
+      cursor: pointer;
+      transition-duration: 0.5s;
+    }
+    .btn:hover {
+      background-color: #8d8e94;
+      color: #e7ebf3;
+    }
+  }
+  .editor-body {
+    flex-grow: 1;
+    background-color: white;
+  }
+  .editor-left-container,
+  .editor-right-container {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    align-items: center;
+  }
 }
