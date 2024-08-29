@@ -2,7 +2,7 @@ import { useContext, useRef, useState } from "react";
 import "./EditorContainer.scss";
 import Editor from "@monaco-editor/react";
 import { PlaygroundContext } from "../../Providers/PlaygroundProvider";
-import { makeSubmission } from "./service";
+// import { makeSubmission } from "./service";
 
 const editorOptions = {
     fontSize:16,
